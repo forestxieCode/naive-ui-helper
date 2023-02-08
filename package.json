@@ -1,0 +1,48 @@
+{
+  "name": "naive-ui-helper",
+  "publick": true,
+  "displayName": "naive-ui-helper",
+  "icon": "src/assets/naive-ui-logo.png",
+  "description": "naive-ui-helper vscode plugin",
+  "publisher": "forestXie",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.56.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:vue",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./dist/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forestxieCode/naive-ui-helper"
+  },
+  "bugs": {
+    "url": "https://github.com/forestxieCode/naive-ui-helper/issues"
+  },
+  "scripts": {
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "build": "vsce package",
+    "publish": "pnpm compile & pnpm build & vsce publish"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.56.0",
+    "glob": "^7.1.6",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3",
+    "vsce": "^2.13.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.4.0"
+  }
+}
