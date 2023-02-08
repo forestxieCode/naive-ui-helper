@@ -1,0 +1,7 @@
+node_modules
+dist
+.vscode
+*.log
+*.vsix
+package.json
+pnpm-lock.yaml
