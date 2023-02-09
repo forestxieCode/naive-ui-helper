@@ -2,10 +2,6 @@ node_modules
 dist
 .vscode
 *.log
-<<<<<<< HEAD
 *.vsix
 package.json
 pnpm-lock.yaml
-=======
-*.vsix
->>>>>>> 8189c55852b7dc58e71b47d69ff966e9b025e140

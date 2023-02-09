@@ -2,19 +2,11 @@ import * as vscode from 'vscode'
 import { componentMap, ComponentDescriptor } from './componentMap'
 import { bigCamelize, kebabCase } from './utils'
 
-<<<<<<< HEAD
 const DOC = 'https://www.naiveui.com/zh-CN/os-theme/components/button'
 const EN_DOC = 'https://www.naiveui.com/en-US/os-theme/components/button'
 
 const LINK_RE = /(?<=<n-)([\w-]+)/g
 const BIG_CAMELIZE_RE = /(?<=<N)([\w-]+)/g
-=======
-const DOC = 'https://www.naiveui.com/zh-CN/os-theme'
-const EN_DOC = 'https://www.naiveui.com/en-US/os-theme'
-
-const LINK_RE = /(?<=<var-)([\w-]+)/g
-const BIG_CAMELIZE_RE = /(?<=<Var)([\w-]+)/g
->>>>>>> 8189c55852b7dc58e71b47d69ff966e9b025e140
 
 const files = ['vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact']
 
