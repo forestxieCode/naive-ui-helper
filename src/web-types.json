@@ -1,0 +1,547 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "framework": "vue",
+  "version": "0.1.0",
+  "name": "NAIVE",
+  "contributions": {
+    "html": {
+      "tags": [
+        {
+          "name": "n-avatar",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-button",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-button-group",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-card",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-carousel",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-collapse",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-collapse-item",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-divider",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-dropdown",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-ellipsis",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-gradient-text",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-icon",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-page-header",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tag",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-watermark",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-auto-complete",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-cascader",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-color-picker",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-checkbox",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-date-picker",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-dynamic-input",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-dynamic-tags",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-form",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-input",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-input-number",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-radio",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-rate",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-select",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-slider",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-switch",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-time-picker",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-transfer",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tree-select",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-upload",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-calendar",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-countdown",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-code",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-data-table",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-descriptions",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-descriptions-item",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-empty",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-config-provider",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-equation",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-image",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-list",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-list-item",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-thing",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-log",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-number-animation",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-statistic",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-table",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-time",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-timeline",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-timeline-item",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tree",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-affix",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-anchor",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-anchor-link",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-back-top",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-breadcrumb",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-breadcrumb-item",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-menu",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-pagination",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-steps",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-step",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tabs",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tab-pane",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-alert",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-badge",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-drawer",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-drawer-content",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-modal",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-popover",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-popselect",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-progress",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-result",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-skeleton",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-spin",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-tooltip",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-layout",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-layout-content",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-layout-header",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-layout-sider",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-layout-footer",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-grid",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-gi",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-space",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-collapse-transition",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        },
+        {
+          "name": "n-scrollbar",
+          "attributes": [],
+          "events": [],
+          "slots": []
+        }
+      ],
+      "types-syntax": "typescript"
+    }
+  }
+}

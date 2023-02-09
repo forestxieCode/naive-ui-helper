@@ -1,14 +1,24 @@
 import * as vscode from 'vscode'
+import {
+  type CompletionItemProvider,
+} from 'vscode'
+import webTypes from './web-types.json'
 import { componentMap, ComponentDescriptor } from './componentMap'
-import { bigCamelize, kebabCase } from './utils'
+import { bigCamelize, kebabCase, isString } from './utils'
 
-const DOC = 'https://www.naiveui.com/zh-CN/os-theme/components/button'
-const EN_DOC = 'https://www.naiveui.com/en-US/os-theme/components/button'
+const ATTR_RE = /(?:<(n-[\w-]+)[^>/]*)|(?:<(N[\w-]+)[^>/]*)/g
+const DOC = 'https://www.naiveui.com/zh-CN/os-theme/components/'
+const EN_DOC = 'https://www.naiveui.com/en-US/os-theme/components/'
 
 const LINK_RE = /(?<=<n-)([\w-]+)/g
 const BIG_CAMELIZE_RE = /(?<=<N)([\w-]+)/g
 
 const files = ['vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact']
+
+
+function getWebTypesTags() {
+  return  webTypes.contributions.html.tags;
+}
 
 function provideCompletionItems() {
   const completionItems: vscode.CompletionItem[] = []
@@ -35,8 +45,8 @@ function resolveCompletionItem(item: vscode.CompletionItem) {
   item.insertText += descriptor.closeSelf ? '/>' : `>${tagSuffix}`
 
   item.command = {
-    title: 'move-cursor',
-    command: 'move-cursor',
+    title: 'naive.move-cursor',
+    command: 'naive.move-cursor',
     arguments: [characterDelta],
   }
 
@@ -72,18 +82,112 @@ function moveCursor(characterDelta: number) {
   vscode.window.activeTextEditor!.selection = new vscode.Selection(position, position)
 }
 
-export function activate(context: vscode.ExtensionContext) {
-  vscode.commands.registerCommand('move-cursor', moveCursor)
+const attrProvider: CompletionItemProvider = {
+  provideCompletionItems(document, position) {
+    const text = document.getText(new vscode.Range(new vscode.Position(0, 0), new vscode.Position(position.line, position.character)))
 
-  context.subscriptions.push(
-    vscode.languages.registerHoverProvider(files, {
-      provideHover,
-    }),
-    vscode.languages.registerCompletionItemProvider(files, {
-      provideCompletionItems,
-      resolveCompletionItem,
+    if (!Array.from(text.matchAll(ATTR_RE)).length) {
+      return null
+    }
+
+    let name: string
+    let lastValue: string
+    let startIndex: number
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const matched of text.matchAll(ATTR_RE)) {
+      name = kebabCase(matched[1] ?? matched[2])
+      lastValue = matched[0]
+      startIndex = matched.index!
+    }
+
+    const currentIndex = text.length
+    const endIndex = startIndex! + lastValue!.length
+
+    if (currentIndex > endIndex || currentIndex < startIndex!) {
+      return null
+    }
+
+    const tags = getWebTypesTags()
+    const tag = tags.find((tag) => tag.name === name)
+
+    if (!tag) {
+      return null
+    }
+
+    const hasAt = text.endsWith('@')
+    const hasColon = text.endsWith(':')
+
+    const events = tag.events.map((event: any) => {
+      const item = new vscode.CompletionItem(
+        {
+          label: `@${event.name}`,
+          description: event.description,
+        },
+        vscode.CompletionItemKind.Event
+      )
+
+      item.documentation = new vscode.MarkdownString(`\
+**Event**: ${event.name}
+
+**Description**: ${event.description}`)
+      item.insertText = hasAt ? event.name : `@${event.name}`
+
+      return item
     })
-  )
+
+    const props = tag.attributes.map((attr: any) => {
+      const item = new vscode.CompletionItem(
+        {
+          label: attr.name,
+          description: attr.description,
+        },
+        vscode.CompletionItemKind.Value
+      )
+
+      item.sortText = '0'
+
+      item.documentation = new vscode.MarkdownString(`\
+**Prop**: ${attr.name}
+
+**Description**: ${attr.description}
+
+**Type**: ${attr.value.type}
+
+**Default**: ${attr.default}`)
+
+      item.insertText = attr.name
+
+      return item
+    })
+
+    return [...(hasAt ? [] : props), ...(hasColon ? [] : events)]
+  },
+
+  resolveCompletionItem(item: vscode.CompletionItem) {
+    if (!isString(item.label)) {
+      item.command = {
+        title: 'naive.move-cursor',
+        command: 'naive.move-cursor',
+        arguments: [-1],
+      }
+      item.insertText = `${item.insertText}=""`
+    }
+
+    return item
+  },
+}
+
+export function activate(context: vscode.ExtensionContext) {
+  vscode.commands.registerCommand('naive.move-cursor', moveCursor)
+
+  context.subscriptions.push(vscode.languages.registerHoverProvider(files, { provideHover }))
+  context.subscriptions.push(vscode.languages.registerCompletionItemProvider(files, {
+    provideCompletionItems,
+    resolveCompletionItem,
+  }))
+  context.subscriptions.push(vscode.languages.registerCompletionItemProvider(files, attrProvider, ' ', '@', ':'))
+  
 }
 
 export function deactivate() {}

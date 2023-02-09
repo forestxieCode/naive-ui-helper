@@ -10,3 +10,5 @@ export function camelize(str: string): string {
 export function bigCamelize(str: string): string {
   return camelize(str).replace(str.charAt(0), str.charAt(0).toUpperCase())
 }
+
+export declare const isString: (val: unknown) => val is string;
