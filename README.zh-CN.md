@@ -8,18 +8,10 @@
 
 - 🛠️ &nbsp;全组件的语法提示和语法补全。
 - 🛠️ &nbsp;全组件的文档地址快速跳转。
-<<<<<<< HEAD
 
 ### 安装
 
 VsCode 插件市场搜索 [naive-ui-helper](https://marketplace.visualstudio.com/items?itemName=forestXie.naive-ui-helper)。
-=======
-- 🛠️ &nbsp;`Icon` 组件的全图标预览，语法提示。
-
-### 安装
-
-VsCode 插件市场搜索 [varlet-vscode-extension](https://marketplace.visualstudio.com/items?itemName=haoziqaq.varlet-vscode-extension)。
->>>>>>> 8189c55852b7dc58e71b47d69ff966e9b025e140
 
 ### 如何使用
 
