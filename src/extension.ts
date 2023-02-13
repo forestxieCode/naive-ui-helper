@@ -2,7 +2,7 @@ import * as vscode from 'vscode'
 import {
   type CompletionItemProvider,
 } from 'vscode'
-import webTypes from './web-types.json'
+import webTypes from 'naive-ui/web-types.json'
 import { componentMap, ComponentDescriptor } from './componentMap'
 import { bigCamelize, kebabCase, isString } from './utils'
 
@@ -15,9 +15,8 @@ const BIG_CAMELIZE_RE = /(?<=<N)([\w-]+)/g
 
 const files = ['vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact']
 
-
 function getWebTypesTags() {
-  return  webTypes.contributions.html.tags;
+  return  webTypes.contributions.html['vue-components'];
 }
 
 function provideCompletionItems() {
@@ -70,7 +69,7 @@ function provideHover(document: vscode.TextDocument, position: vscode.Position) 
           : `Watch ${bigCamelize(component)} component documentation`
 
         return `\
-[Naive-Ui -> ${text}](${isCN ? DOC : EN_DOC}${site})`
+[NaiveUI -> ${text}](${isCN ? DOC : EN_DOC}${site})`
       })
     return new vscode.Hover(contents)
   }
@@ -96,7 +95,7 @@ const attrProvider: CompletionItemProvider = {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const matched of text.matchAll(ATTR_RE)) {
-      name = kebabCase(matched[1] ?? matched[2])
+      name = bigCamelize(matched[1] ?? matched[2])
       lastValue = matched[0]
       startIndex = matched.index!
     }
@@ -118,11 +117,11 @@ const attrProvider: CompletionItemProvider = {
     const hasAt = text.endsWith('@')
     const hasColon = text.endsWith(':')
 
-    const events = tag.events.map((event: any) => {
+    const events = tag.js.events.map((event: any) => {
       const item = new vscode.CompletionItem(
         {
           label: `@${event.name}`,
-          description: event.description,
+          description: event['doc-url'],
         },
         vscode.CompletionItemKind.Event
       )
@@ -130,17 +129,17 @@ const attrProvider: CompletionItemProvider = {
       item.documentation = new vscode.MarkdownString(`\
 **Event**: ${event.name}
 
-**Description**: ${event.description}`)
+**Description**: ${event['doc-url']}`)
       item.insertText = hasAt ? event.name : `@${event.name}`
 
       return item
     })
 
-    const props = tag.attributes.map((attr: any) => {
+    const props = tag.props.map((attr: any) => {
       const item = new vscode.CompletionItem(
         {
           label: attr.name,
-          description: attr.description,
+          description: attr['doc-url'],
         },
         vscode.CompletionItemKind.Value
       )
@@ -150,11 +149,9 @@ const attrProvider: CompletionItemProvider = {
       item.documentation = new vscode.MarkdownString(`\
 **Prop**: ${attr.name}
 
-**Description**: ${attr.description}
+**Description**: ${attr['doc-url']}
 
-**Type**: ${attr.value.type}
-
-**Default**: ${attr.default}`)
+**Type**: ${attr.type}`)
 
       item.insertText = attr.name
 

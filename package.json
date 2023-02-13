@@ -5,7 +5,7 @@
   "icon": "src/assets/naive-ui-logo.png",
   "description": "naive-ui-helper vscode plugin",
   "publisher": "forestXie",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -39,6 +39,7 @@
     "@types/node": "14.x",
     "@types/vscode": "^1.56.0",
     "glob": "^7.1.6",
+    "naive-ui": "^2.34.3",
     "ts-loader": "^8.0.14",
     "typescript": "^4.1.3",
     "vsce": "^2.13.0",
