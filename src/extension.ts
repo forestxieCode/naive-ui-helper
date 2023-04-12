@@ -178,7 +178,7 @@ const attrProvider: CompletionItemProvider = {
 export function activate(context: vscode.ExtensionContext) {
   vscode.commands.registerCommand('naive.move-cursor', moveCursor)
 
-  context.subscriptions.push(vscode.languages.registerHoverProvider(files, { provideHover }))
+  // context.subscriptions.push(vscode.languages.registerHoverProvider(files, { provideHover }))
   context.subscriptions.push(vscode.languages.registerCompletionItemProvider(files, {
     provideCompletionItems,
     resolveCompletionItem,
